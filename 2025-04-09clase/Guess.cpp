@@ -5,12 +5,13 @@ Tner Un numero
 Preguntar al usuario el numero
 Informar si lo adivino
 != OPERADOR LOGICO DE DESIGUALDad
+condiciones logicas if else etc
 */
 #include <iostream>
 
   int main(void ){
 
-     const int NUM = 10;
+     const int NUM = 10; // 
      int guessed_number = NUM/2;
   
     while(guessed_number != NUM){

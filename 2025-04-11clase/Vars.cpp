@@ -1,6 +1,7 @@
 /* g++ -g -fsanitize=undefined cosa acompilar
 Lo mejor es usar {} para darle valor a int para que  detecte el error
-
+Toda cosa diferente de 0 es True 
+y 0 es Flase
 
  */
 

@@ -9,28 +9,56 @@ condiciones logicas if else etc
 clase 04 11
 
 e307== 10 por 10 al 307
+
+en una fun
 */
 #include <iostream>
+#include <random>
 
-  int main(void ){
+// declaration
+void play(int success, int min_val, int max_val);
 
-     const int NUM = 10; // 
-     int guessed_number = NUM/2;
-  
-    while(guessed_number != NUM){
-       std::cout << "Adivina un Numero entre 1 y 100:\n";
-       std::cin >> guessed_number;
 
-        if (guessed_number == NUM){
-       std::cout << "GANASTE!!!\n";
-        //break;
-       } else if (guessed_number > NUM){
-        std:: cout << "Te pasaste.\n"; 
-       } 
-        else {std::cout << "Te falta.\n";
-       }
+int main(void) {
+    play(10, 1, 100);
+    play(20, 2, 22);
+
+    return 0;
+}
+
+// Implementation
+void play(int success, int min_val, int max_val)
+{
+    std::random_device rd;
+    std::mt19937 gen(10);
+    std::uniform_int_distribution<int> distro(min_val, max_val)
+    const int NUM = success;
+    int guessed_number = NUM/2;
+
+    const int MIN = min_val;
+    const int MAX = max_val;
+
+    std::cout << "\nINICIA EL JUEGO\n";
+
+    while(guessed_number != NUM) {
+        std::cout << "Adivina un numero entre  " << MIN << "  y " << MAX << ":\n";
+        std::cin >> guessed_number;
+        std::cout << "Ecribiste: " << guessed_number << "\n";
+
+        // validacion del rango 
+        if (guessed_number < MIN or MAX < guessed_number) {
+            std::cout << "El numero no esta en el rango.\n";
+            continue; 
+        }
+
+        if (guessed_number == NUM) {
+            std::cout << "GANASTE!!!!\n";
+            //break;
+        } else if (guessed_number > NUM){
+            std::cout << "Te pasaste.\n";
+        } else { // es menor
+            std::cout << "Te falta.\n";
+        }
     }
 
-return 0;
-
- }
+}
